@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════════
+   Styles globaux — Le Fourgon
+   ══════════════════════════════════════════════ */
+
+@layer base {
+  /* ── Reset & Defaults ── */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-body text-body-md text-fourgon-noir bg-white;
+  }
+
+  /* ── Typographie ── */
+  h1, h2, h3 {
+    @apply font-display;
+  }
+
+  h1 {
+    @apply text-display-lg md:text-display-xl text-fourgon-vert-foret;
+  }
+
+  h2 {
+    @apply text-display-md md:text-display-lg text-fourgon-vert-foret;
+  }
+
+  h3 {
+    @apply text-heading-lg text-fourgon-noir;
+  }
+
+  h4 {
+    @apply text-heading-md text-fourgon-noir;
+  }
+
+  /* ── Links ── */
+  a {
+    @apply text-fourgon-vert-foret underline-offset-4 transition-colors duration-250;
+  }
+
+  a:hover {
+    @apply text-fourgon-vert-prairie;
+  }
+
+  /* ── Focus visible ── */
+  :focus-visible {
+    @apply outline-none ring-2 ring-fourgon-vert-prairie ring-offset-2;
+  }
+
+  /* ── Selection ── */
+  ::selection {
+    @apply bg-fourgon-vert-menthe text-fourgon-vert-foret;
+  }
+}
+
+@layer components {
+  /* ── Conteneur section ── */
+  .section {
+    @apply py-16 md:py-22 lg:py-30;
+  }
+
+  .section-sm {
+    @apply py-10 md:py-15 lg:py-18;
+  }
+
+  /* ── Gradient de fond signature ── */
+  .bg-gradient-fourgon {
+    background: linear-gradient(
+      135deg,
+      theme("colors.fourgon.vert-clair") 0%,
+      theme("colors.white") 50%,
+      theme("colors.fourgon.bleu-glace") 100%
+    );
+  }
+
+  /* ── Carte produit ── */
+  .product-card {
+    @apply bg-white rounded-2xl shadow-card hover:shadow-card-hover
+           transition-all duration-350 ease-out overflow-hidden;
+  }
+
+  .product-card:hover {
+    @apply -translate-y-1;
+  }
+
+  /* ── Badge consigne ── */
+  .badge-consigne {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full
+           bg-fourgon-vert-clair text-fourgon-vert-foret text-caption font-semibold;
+  }
+
+  /* ── Input ── */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl border border-fourgon-gris-moyen/30
+           bg-white text-fourgon-noir placeholder:text-fourgon-gris-moyen
+           transition-all duration-250
+           focus:border-fourgon-vert-prairie focus:ring-2 focus:ring-fourgon-vert-prairie/20
+           focus:outline-none;
+  }
+}
+
+@layer utilities {
+  /* ── Animation stagger pour listes ── */
+  .stagger-children > * {
+    @apply animate-fade-in opacity-0;
+  }
+
+  .stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+  .stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+  .stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+  .stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+  .stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+  .stagger-children > *:nth-child(6) { animation-delay: 400ms; }
+
+  /* ── Masquer scrollbar ── */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

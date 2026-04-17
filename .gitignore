@@ -1,0 +1,42 @@
+# ── Dépendances ──
+node_modules/
+.pnpm-store/
+
+# ── Build ──
+.next/
+dist/
+build/
+.turbo/
+
+# ── Environnement ──
+.env
+.env.local
+.env.*.local
+
+# ── IDE ──
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# ── Strapi ──
+apps/cms/.tmp/
+apps/cms/.cache/
+apps/cms/build/
+apps/cms/dist/
+apps/cms/exports/
+apps/cms/public/uploads/*
+!apps/cms/public/uploads/.gitkeep
+
+# ── Logs ──
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# ── Tests ──
+coverage/
+.nyc_output/
+
+# ── Vercel ──
+.vercel/

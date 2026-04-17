@@ -44,8 +44,8 @@ le-fourgon/
 
 ```bash
 # 1. Cloner le repo
-git clone https://github.com/studigital/le-fourgon.git
-cd le-fourgon
+git clone https://github.com/Jery2022/le-fourgon-studi-ewomba.git
+cd le-fourgon-studi-ewomba
 
 # 2. Installer les dépendances
 pnpm install
