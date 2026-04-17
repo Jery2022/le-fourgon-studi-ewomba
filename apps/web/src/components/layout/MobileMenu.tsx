@@ -6,7 +6,7 @@
 
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -32,12 +32,15 @@ const BTOB_LINKS = [
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps): JSX.Element {
   const pathname = usePathname();
+  const previousPathnameRef = useRef(pathname);
 
-  // Fermer le menu au changement de page
+  // Fermer le menu uniquement lors d'une vraie navigation
   useEffect(() => {
-    if (isOpen) {
+    if (previousPathnameRef.current !== pathname && isOpen) {
       onClose();
     }
+
+    previousPathnameRef.current = pathname;
   }, [pathname, isOpen, onClose]);
 
   useEffect(() => {
