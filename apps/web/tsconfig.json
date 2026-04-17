@@ -1,20 +1,13 @@
 {
   "extends": "../../packages/config/tsconfig.nextjs.json",
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@le-fourgon/ui": [
-        "../../packages/ui/src/index.ts"
-      ],
-      "@le-fourgon/types": [
-        "../../packages/types/src/index.ts"
-      ],
-      "@le-fourgon/utils": [
-        "../../packages/utils/src/index.ts"
-      ]
+      "@/*": ["./src/*"],
+      "@le-fourgon/ui": ["../../packages/ui/src/index.ts"],
+      "@le-fourgon/types": ["../../packages/types/src/index.ts"],
+      "@le-fourgon/utils": ["../../packages/utils/src/index.ts"]
     }
   },
   "include": [
@@ -24,7 +17,5 @@
     "src/**/*.tsx",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
