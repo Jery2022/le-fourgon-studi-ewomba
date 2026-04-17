@@ -13,11 +13,6 @@ export default ({ env }) => ({
     },
   },
 
-  // ── SEO ──
-  seo: {
-    enabled: true,
-  },
-
   // ── Users & Permissions ──
   "users-permissions": {
     config: {
