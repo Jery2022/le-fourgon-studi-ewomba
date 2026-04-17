@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_feature_items",
+  "info": {
+    "displayName": "Feature Item",
+    "description": "\u00c9l\u00e9ment de fonctionnalit\u00e9",
+    "icon": "check"
+  },
+  "attributes": {
+    "title": { "type": "string", "required": true, "maxLength": 100 },
+    "description": { "type": "text", "required": true, "maxLength": 300 },
+    "icon": { "type": "media", "multiple": false, "allowedTypes": ["images"] },
+    "emoji": { "type": "string", "maxLength": 10 }
+  }
+}

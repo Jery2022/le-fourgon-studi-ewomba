@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "delivery_zones",
+  "info": {
+    "singularName": "delivery-zone",
+    "pluralName": "delivery-zones",
+    "displayName": "Zone de Livraison",
+    "description": "Zones de livraison avec tarifs et seuils"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "name": { "type": "string", "required": true, "unique": true, "maxLength": 100 },
+    "postalCodes": { "type": "json", "required": true },
+    "deliveryFee": { "type": "integer", "required": true, "min": 0 },
+    "minOrderAmount": { "type": "integer", "required": true, "min": 0, "default": 0 },
+    "isActive": { "type": "boolean", "default": true, "required": true }
+  }
+}

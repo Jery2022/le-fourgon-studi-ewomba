@@ -1,0 +1,100 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Produit",
+    "description": "Catalogue de boissons consignées Le Fourgon"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "shortDescription": {
+      "type": "text",
+      "maxLength": 300
+    },
+    "price": {
+      "type": "integer",
+      "required": true,
+      "min": 0
+    },
+    "depositAmount": {
+      "type": "integer",
+      "required": true,
+      "default": 0,
+      "min": 0
+    },
+    "volume": {
+      "type": "string",
+      "required": true
+    },
+    "unit": {
+      "type": "enumeration",
+      "enum": ["bouteille", "pack", "caisse"],
+      "default": "bouteille",
+      "required": true
+    },
+    "packSize": {
+      "type": "integer",
+      "min": 1
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::product-category.product-category",
+      "inversedBy": "products"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "isAvailable": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "isNew": {
+      "type": "boolean",
+      "default": false
+    },
+    "isBio": {
+      "type": "boolean",
+      "default": false
+    },
+    "allergens": {
+      "type": "text"
+    },
+    "origin": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "producer": {
+      "type": "string",
+      "maxLength": 200
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}

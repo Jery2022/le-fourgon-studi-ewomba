@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "collection_points",
+  "info": {
+    "singularName": "collection-point",
+    "pluralName": "collection-points",
+    "displayName": "Point de Collecte",
+    "description": "Points de collecte et retrait des consignes"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "name": { "type": "string", "required": true, "maxLength": 200 },
+    "street": { "type": "string", "required": true },
+    "complement": { "type": "string" },
+    "postalCode": { "type": "string", "required": true, "maxLength": 5 },
+    "city": { "type": "string", "required": true },
+    "latitude": { "type": "float", "required": true },
+    "longitude": { "type": "float", "required": true },
+    "openingHours": { "type": "text", "required": true },
+    "phone": { "type": "string" },
+    "isActive": { "type": "boolean", "default": true, "required": true }
+  }
+}

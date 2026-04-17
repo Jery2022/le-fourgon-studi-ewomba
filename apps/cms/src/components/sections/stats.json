@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_stats",
+  "info": { "displayName": "Stats", "description": "Chiffres cl\u00e9s", "icon": "chartBubble" },
+  "attributes": {
+    "title": { "type": "string", "maxLength": 200 },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.stat-item"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "promo_codes",
+  "info": {
+    "singularName": "promo-code",
+    "pluralName": "promo-codes",
+    "displayName": "Code Promo",
+    "description": "Codes promotionnels et parrainage"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "code": { "type": "string", "required": true, "unique": true, "maxLength": 50 },
+    "type": {
+      "type": "enumeration",
+      "enum": ["percentage", "fixed"],
+      "required": true,
+      "default": "percentage"
+    },
+    "value": { "type": "integer", "required": true, "min": 0 },
+    "minOrderAmount": { "type": "integer", "min": 0 },
+    "maxUses": { "type": "integer", "min": 0 },
+    "currentUses": { "type": "integer", "default": 0, "min": 0 },
+    "expiresAt": { "type": "datetime" },
+    "isActive": { "type": "boolean", "default": true, "required": true }
+  }
+}

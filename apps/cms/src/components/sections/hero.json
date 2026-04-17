@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_sections_heroes",
+  "info": {
+    "displayName": "Hero",
+    "description": "Section hero avec titre, sous-titre, CTA et image/vid\u00e9o",
+    "icon": "star"
+  },
+  "attributes": {
+    "title": { "type": "string", "required": true, "maxLength": 200 },
+    "subtitle": { "type": "text", "maxLength": 500 },
+    "ctaLabel": { "type": "string", "maxLength": 50 },
+    "ctaLink": { "type": "string", "maxLength": 300 },
+    "secondaryCtaLabel": { "type": "string", "maxLength": 50 },
+    "secondaryCtaLink": { "type": "string", "maxLength": 300 },
+    "backgroundImage": { "type": "media", "multiple": false, "allowedTypes": ["images", "videos"] },
+    "alignment": {
+      "type": "enumeration",
+      "enum": ["left", "center", "right"],
+      "default": "center"
+    }
+  }
+}

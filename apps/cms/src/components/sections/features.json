@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_sections_features",
+  "info": {
+    "displayName": "Features",
+    "description": "Grille de fonctionnalit\u00e9s ou avantages",
+    "icon": "grid"
+  },
+  "attributes": {
+    "title": { "type": "string", "maxLength": 200 },
+    "subtitle": { "type": "text", "maxLength": 500 },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-item"
+    }
+  }
+}

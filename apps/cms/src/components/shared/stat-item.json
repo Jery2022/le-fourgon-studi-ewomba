@@ -1,0 +1,8 @@
+{
+  "collectionName": "components_shared_stat_items",
+  "info": { "displayName": "Stat Item", "icon": "chartBubble" },
+  "attributes": {
+    "value": { "type": "string", "required": true, "maxLength": 20 },
+    "label": { "type": "string", "required": true, "maxLength": 100 }
+  }
+}

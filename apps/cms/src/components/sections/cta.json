@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sections_ctas",
+  "info": { "displayName": "CTA", "description": "Section appel \u00e0 l\u2019action", "icon": "cursor" },
+  "attributes": {
+    "title": { "type": "string", "required": true, "maxLength": 200 },
+    "description": { "type": "text", "maxLength": 500 },
+    "ctaLabel": { "type": "string", "required": true, "maxLength": 50 },
+    "ctaLink": { "type": "string", "required": true, "maxLength": 300 },
+    "variant": {
+      "type": "enumeration",
+      "enum": ["green", "blue", "orange"],
+      "default": "green"
+    }
+  }
+}

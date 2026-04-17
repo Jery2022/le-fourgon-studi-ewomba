@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_sections_testimonials",
+  "info": { "displayName": "Testimonials", "description": "Carrousel de t\u00e9moignages", "icon": "quote" },
+  "attributes": {
+    "title": { "type": "string", "maxLength": 200 },
+    "subtitle": { "type": "text", "maxLength": 500 },
+    "showBtoB": { "type": "boolean", "default": false }
+  }
+}

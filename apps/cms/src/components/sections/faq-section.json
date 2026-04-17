@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_sections_faq_sections",
+  "info": { "displayName": "FAQ Section", "description": "Section FAQ filtr\u00e9e par cat\u00e9gorie", "icon": "question" },
+  "attributes": {
+    "title": { "type": "string", "maxLength": 200 },
+    "filterCategory": {
+      "type": "enumeration",
+      "enum": ["general", "livraison", "consigne", "paiement", "btob"]
+    }
+  }
+}
