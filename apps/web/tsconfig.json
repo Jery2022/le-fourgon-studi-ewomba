@@ -3,12 +3,28 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@le-fourgon/ui": ["../../packages/ui/src/index.ts"],
-      "@le-fourgon/types": ["../../packages/types/src/index.ts"],
-      "@le-fourgon/utils": ["../../packages/utils/src/index.ts"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@le-fourgon/ui": [
+        "../../packages/ui/src/index.ts"
+      ],
+      "@le-fourgon/types": [
+        "../../packages/types/src/index.ts"
+      ],
+      "@le-fourgon/utils": [
+        "../../packages/utils/src/index.ts"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx", "*.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "*.ts",
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

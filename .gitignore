@@ -20,7 +20,12 @@ build/
 *.swo
 .DS_Store
 
+# ── web ──
+apps/web/.env
+apps/web/.env.local
+
 # ── Strapi ──
+apps/cms/.env
 apps/cms/.tmp/
 apps/cms/.cache/
 apps/cms/build/
