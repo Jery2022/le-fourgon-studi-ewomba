@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Fraunces } from "next/font/google";
-import { Header, Footer, MobileNav } from "@/components/layout";
 import "@/styles/globals.css";
 
 // ── Polices ──
@@ -74,10 +73,9 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${dmSans.variable} ${fraunces.variable}`}>
       <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1 pb-16 lg:pb-0">{children}</main>
-        <Footer />
-        <MobileNav />
+        {/* TODO: Header */}
+        <main className="flex-1">{children}</main>
+        {/* TODO: Footer */}
       </body>
     </html>
   );
