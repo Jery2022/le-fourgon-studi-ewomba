@@ -3,10 +3,27 @@
 //  PostgreSQL en production, SQLite en développement (optionnel)
 // ══════════════════════════════════════════════
 
-export default ({ env }) => {
-  const client = env("DATABASE_CLIENT", "postgres");
+type EnvFn = {
+  (key: string, defaultValue?: string): string;
+  int: (key: string, defaultValue?: number) => number;
+  bool: (key: string, defaultValue?: boolean) => boolean;
+};
 
-  const connections = {
+type DatabaseClient = "postgres" | "sqlite";
+
+type DatabaseConfig = {
+  connection: Record<string, unknown>;
+  pool?: {
+    min: number;
+    max: number;
+  };
+  useNullAsDefault?: boolean;
+};
+
+export default ({ env }: { env: EnvFn }) => {
+  const client = env("DATABASE_CLIENT", "postgres") as DatabaseClient;
+
+  const connections: Record<DatabaseClient, DatabaseConfig> = {
     postgres: {
       connection: {
         host: env("DATABASE_HOST", "localhost"),
@@ -15,7 +32,10 @@ export default ({ env }) => {
         user: env("DATABASE_USERNAME", "lefourgon"),
         password: env("DATABASE_PASSWORD", ""),
         ssl: env.bool("DATABASE_SSL", false) && {
-          rejectUnauthorized: env.bool("DATABASE_SSL_REJECT_UNAUTHORIZED", true),
+          rejectUnauthorized: env.bool(
+            "DATABASE_SSL_REJECT_UNAUTHORIZED",
+            true,
+          ),
         },
         schema: env("DATABASE_SCHEMA", "public"),
       },
