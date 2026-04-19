@@ -45,3 +45,10 @@ coverage/
 
 # ── Vercel ──
 .vercel/
+
+# - Guide d'utilisation : -
+Guide_Netlify_LeFourgon.md
+Guide_Vercel_LeFourgon.md
+Guide_Railway_LeFourgon.md
+Guide_Strapi_LeFourgon.md
+Guide_Cloudinary_LeFourgon.md 
