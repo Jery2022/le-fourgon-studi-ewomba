@@ -1,0 +1,11 @@
+[build]
+  command = "pnpm install && pnpm turbo build --filter=@le-fourgon/web"
+  publish = "apps/web/.next"
+
+[build.environment]
+  NODE_VERSION  = "20"
+  PNPM_VERSION  = "9.12.0"
+  NEXT_PUBLIC_SITE_URL = "https://lefourgon-studi-ewomba.netlify.app"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
