@@ -1,4 +1,8 @@
-export default ({ env }) => ({
+type EnvFn = {
+  (key: string, defaultValue?: unknown): any;
+};
+
+export default ({ env }: { env: EnvFn }) => ({
   // ── GraphQL ──
   graphql: {
     config: {
