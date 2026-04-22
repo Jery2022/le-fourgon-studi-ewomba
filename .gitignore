@@ -47,8 +47,14 @@ coverage/
 .vercel/
 
 # - Guide d'utilisation : -
-Guide_Netlify_LeFourgon.md
-Guide_Vercel_LeFourgon.md
-Guide_Railway_LeFourgon.md
-Guide_Strapi_LeFourgon.md
-Guide_Cloudinary_LeFourgon.md 
+.guide/
+.guide/Guide_Netlify_LeFourgon.md
+.guide/Guide_Vercel_LeFourgon.md
+.guide/Guide_Railway_LeFourgon.md
+.guide/Guide_Strapi_LeFourgon.md
+.guide/Guide_Cloudinary_LeFourgon.md 
+.guide/GITHUB-WORKFLOW.md
+
+# ── Autres ──
+.tmp/
+.cache/
