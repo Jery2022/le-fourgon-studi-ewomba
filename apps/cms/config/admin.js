@@ -1,9 +1,4 @@
-type EnvFn = {
-  (key: string, defaultValue?: unknown): any;
-  bool: (key: string, defaultValue?: boolean) => boolean;
-};
-
-export default ({ env }: { env: EnvFn }) => ({
+module.exports = ({ env }) => ({
   auth: {
     secret: env("ADMIN_JWT_SECRET", "admin-jwt-secret-default"),
   },

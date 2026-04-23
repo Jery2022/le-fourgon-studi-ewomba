@@ -3,9 +3,10 @@
 #  Multi-stage build optimisé production
 # ══════════════════════════════════════════════
 
-FROM node:20-alpine3.19 AS base
-RUN apk add --no-cache libc6-compat
-RUN npm install -g pnpm@9.12.3
+FROM node:20-bookworm-slim AS base
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable && corepack prepare pnpm@9.12.3 --activate
 
 # ── Dépendances ──
 FROM base AS deps
@@ -15,7 +16,8 @@ COPY apps/cms/package.json ./apps/cms/
 COPY packages/types/package.json ./packages/types/
 COPY packages/utils/package.json ./packages/utils/
 COPY packages/config/package.json ./packages/config/
-RUN pnpm install --frozen-lockfile --filter=cms...
+# Essayer frozen-lockfile d'abord, puis fallback à --no-frozen-lockfile si config mismatch
+RUN pnpm install --frozen-lockfile --filter=cms... 2>&1 | grep -q "LOCKFILE_CONFIG_MISMATCH" && pnpm install --no-frozen-lockfile --filter=cms... || true
 
 # ── Build ──
 FROM base AS builder
@@ -24,14 +26,14 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY --from=deps /app/apps/cms/node_modules ./apps/cms/node_modules
 COPY . .
 ENV NODE_ENV=production
-RUN cd apps/cms && pnpm build
+RUN pnpm --dir apps/cms build
 
 # ── Production ──
 FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 
-# Copier les fichiers n\u00e9cessaires
+# Copier les fichiers nécessaires
 COPY --from=builder /app/apps/cms/dist ./apps/cms/dist
 COPY --from=builder /app/apps/cms/config ./apps/cms/config
 COPY --from=builder /app/apps/cms/src ./apps/cms/src

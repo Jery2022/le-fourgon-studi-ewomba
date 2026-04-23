@@ -1,10 +1,6 @@
 "use strict";
 
-const { createCoreRouter } = require("@strapi/strapi").factories;
-
-const defaultRouter = createCoreRouter("api::order.order");
-
-const customRouter = {
+module.exports = {
   routes: [
     {
       method: "POST",
@@ -19,8 +15,4 @@ const customRouter = {
       config: { policies: [] },
     },
   ],
-};
-
-module.exports = {
-  routes: [...customRouter.routes, ...defaultRouter.routes],
 };

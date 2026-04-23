@@ -6,7 +6,7 @@
 
 "use strict";
 
-const seedData = require("../../database/seeds/seed");
+const seedData = require("../database/seeds/seed");
 
 module.exports = async ({ strapi }) => {
   // Vérifier si des données existent déjà
