@@ -6,8 +6,29 @@
     "moduleResolution": "node",
     "outDir": "dist",
     "rootDir": ".",
-    "typeRoots": ["./types", "./node_modules/@types"]
+    "typeRoots": ["./types", "./node_modules/@types"],
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "noEmit": false
   },
-  "include": ["src/**/*", "config/**/*", "*.js", "*.json"],
-  "exclude": ["node_modules", "dist", "build", ".cache", ".tmp"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.js",
+    "src/**/*.json",
+    "config/**/*.js",
+    "config/**/*.json",
+    "*.js",
+    "*.json"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    ".cache",
+    ".tmp",
+    "**/*.d.ts",
+    "**/*.d.ts.map",
+    "**/*.js.map"
+  ]
 }
