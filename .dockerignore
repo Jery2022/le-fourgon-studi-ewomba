@@ -1,0 +1,59 @@
+# ════════════════════════════════════════════════════
+#  .dockerignore — Exclure les fichiers du contexte Docker
+# ════════════════════════════════════════════════════
+
+# ── Dépendances ──
+node_modules
+*/*/node_modules
+*/*/*/node_modules
+.pnpmstore
+# ⚠️ NE PAS exclure pnpm-lock.yaml - il est nécessaire pour le build
+
+# ── Versioning & IDE ──
+.git
+.gitignore
+.github
+.vscode
+.idea
+*.swp
+*.swo
+*.sublime-workspace
+
+# ── Build/Dist ──
+dist
+build
+.next
+.nuxt
+coverage
+.turbo
+
+# ── Environnement ──
+.env
+.env.local
+.env.*.local
+.env.*.example
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ── Logs ──
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+
+# ── Tests ──
+.nyc_output
+__tests__/__snapshots__
+
+# ── Docker ──
+Dockerfile
+docker-compose*.yml
+Dockerfile.*
+
+# ── Documentation ──
+README.md
+LICENSE
+*.md

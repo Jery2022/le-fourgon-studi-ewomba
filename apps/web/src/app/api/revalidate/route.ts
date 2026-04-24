@@ -23,9 +23,13 @@ export async function POST(request: NextRequest) {
 
     // Revalidation par modèle Strapi
     const tagMap: Record<string, string[]> = {
-      article: ["articles", entry?.slug ? `article-${entry.slug}` : ""].filter(Boolean),
+      article: ["articles", entry?.slug ? `article-${entry.slug}` : ""].filter(
+        Boolean,
+      ),
       page: ["pages", entry?.slug ? `page-${entry.slug}` : ""].filter(Boolean),
-      product: ["products", entry?.slug ? `product-${entry.slug}` : ""].filter(Boolean),
+      product: ["products", entry?.slug ? `product-${entry.slug}` : ""].filter(
+        Boolean,
+      ),
       "product-category": ["product-categories", "products"],
       faq: ["faqs"],
       testimonial: ["testimonials"],
@@ -36,7 +40,7 @@ export async function POST(request: NextRequest) {
     const tags = tagMap[model] || [];
 
     for (const tag of tags) {
-      revalidateTag(tag);
+      revalidateTag(tag, "max");
     }
 
     return NextResponse.json({
