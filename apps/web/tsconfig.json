@@ -1,8 +1,8 @@
 {
   "extends": "../../packages/config/tsconfig.nextjs.json",
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
+    "types": ["next", "next/image-types/global"],
     "paths": {
       "@/*": ["./src/*"],
       "@le-fourgon/ui": ["../../packages/ui/src/index.ts"],
@@ -10,12 +10,6 @@
       "@le-fourgon/utils": ["../../packages/utils/src/index.ts"]
     }
   },
-  "include": [
-    "*.ts",
-    "next-env.d.ts",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", ".next"]
 }

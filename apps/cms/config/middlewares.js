@@ -1,4 +1,4 @@
-export default [
+module.exports = [
   "strapi::logger",
   "strapi::errors",
   {
@@ -33,10 +33,9 @@ export default [
     name: "strapi::cors",
     config: {
       origin: [
-        "http://localhost:3000", // Next.js dev
-        "http://localhost:1337", // Strapi admin
-        (globalThis as { process?: { env?: { FRONTEND_URL?: string } } })
-          .process?.env?.FRONTEND_URL, // Production
+        "http://localhost:3000",
+        "http://localhost:1337",
+        process.env.FRONTEND_URL,
       ].filter(Boolean),
       methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
       headers: [

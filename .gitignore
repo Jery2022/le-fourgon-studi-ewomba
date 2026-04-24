@@ -13,6 +13,7 @@ build/
 .env.copy
 .env.local
 .env.*.local
+.env copy
 
 # ── IDE ──
 .vscode/settings.json
@@ -44,13 +45,18 @@ pnpm-debug.log*
 coverage/
 .nyc_output/
 
+# ── Guides ──
+.guide/
+.guide/Guide_Netlify_LeFourgon.md
+.guide/Guide_Vercel_LeFourgon.md
+.guide/Guide_Railway_LeFourgon.md
+.guide/Guide_Strapi_LeFourgon.md
+.guide/Guide_Cloudinary_LeFourgon.md
+.guide/GITHUB-WORKFLOW.md
+
 # ── Vercel ──
 .vercel/
 
-# - Guide d'utilisation : -
-.guide/
-Guide_Netlify_LeFourgon.md
-Guide_Vercel_LeFourgon.md
-Guide_Railway_LeFourgon.md
-Guide_Strapi_LeFourgon.md
-Guide_Cloudinary_LeFourgon.md 
+# ── Autres ──
+.tmp/
+.cache/
