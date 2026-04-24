@@ -7,48 +7,16 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:-lefourgon_db}
       POSTGRES_USER: ${POSTGRES_USER:-lefourgon}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-lefourgon_dev}
+    ports:
+      - "5432:5432"
     volumes:
       - le-fourgon-db-data:/var/lib/postgresql/data
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "pg_isready -U ${POSTGRES_USER:-lefourgon} -d ${POSTGRES_DB:-lefourgon_db}",
-        ]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-lefourgon} -d ${POSTGRES_DB:-lefourgon_db}"]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 20s
-
-  cms:
-    build:
-      context: .
-      dockerfile: apps/cms/Dockerfile
-    container_name: le-fourgon-cms
-    restart: unless-stopped
-    depends_on:
-      db:
-        condition: service_healthy
-    env_file:
-      - apps/cms/.env
-    environment:
-      HOST: 0.0.0.0
-      PORT: 1337
-      PUBLIC_URL: http://localhost:1337
-      FRONTEND_URL: http://localhost:3000
-      DATABASE_CLIENT: postgres
-      DATABASE_HOST: db
-      DATABASE_PORT: 5432
-      DATABASE_NAME: ${POSTGRES_DB:-lefourgon_db}
-      DATABASE_USERNAME: ${POSTGRES_USER:-lefourgon}
-      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-lefourgon_dev}
-      DATABASE_SSL: "false"
-      STRIPE_PUBLIC_KEY: ${STRIPE_PUBLIC_KEY:-}
-      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
-    ports:
-      - "1337:1337"
-    volumes:
-      - ./apps/cms/public/uploads:/app/apps/cms/public/uploads
 
 volumes:
   le-fourgon-db-data:

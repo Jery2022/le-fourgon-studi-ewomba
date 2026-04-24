@@ -2,6 +2,7 @@
   "extends": "../../packages/config/tsconfig.nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "types": ["next", "next/image-types/global"],
     "paths": {
       "@/*": ["./src/*"],
       "@le-fourgon/ui": ["../../packages/ui/src/index.ts"],

@@ -2,5 +2,14 @@
   "name": "@le-fourgon/config",
   "version": "0.1.0",
   "private": true,
-  "files": ["tsconfig.base.json", "tsconfig.nextjs.json", "tailwind.config.ts", ".eslintrc.base.js", ".prettierrc"]
+  "files": [
+    "tsconfig.base.json",
+    "tsconfig.nextjs.json",
+    "tailwind.config.ts",
+    ".eslintrc.base.js",
+    ".prettierrc"
+  ],
+  "dependencies": {
+    "tailwindcss": "^3.4.0"
+  }
 }

@@ -1,47 +1,12 @@
 [build]
-  command = "pnpm install && pnpm turbo build --filter=@le-fourgon/web"
-  publish = "apps/web/.next"
+  base = "apps/web"
+  command = "pnpm build"
+  publish = ".next"
 
 [build.environment]
-  NODE_VERSION  = "20"
-  PNPM_VERSION  = "9.12.0"
-  NEXT_PUBLIC_SITE_URL = "https://lefourgon-studi-ewomba.netlify.app"
+  NODE_VERSION = "20"
+  PNPM_VERSION = "9.12.0"
   NEXT_TELEMETRY_DISABLED = "1"
 
-
-# Headers de cache pour les assets statiques
-[[headers]]
-  for = "/_next/static/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/images/*"
-  [headers.values]
-    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
-
-# Sécurité — Headers définis dans le CdC Phase 2
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://res.cloudinary.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.stripe.com https://*.strapi.io"
-    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
-
-# Redirections BtoC / BtoB
-[[redirects]]
-  from = "/pro"
-  to = "/professionnels"
-  status = 301
-
-[[redirects]]
-  from = "/api/*"
-  to = "https://strapi-lefourgon.railway.app/api/:splat"
-  status = 200
-  force = true
-
 [[plugins]]
-  package = "@netlify/plugin-nextjs" 
+  package = "@netlify/plugin-nextjs"
