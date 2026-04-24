@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd ../.. && pnpm turbo run build --filter=@le-fourgon/web",
+  "buildCommand": "cd ../.. && pnpm turbo run build --filter=web",
   "installCommand": "cd ../.. && pnpm install",
   "framework": "nextjs",
   "headers": [
@@ -35,5 +35,6 @@
       "destination": "/catalogue/:slug",
       "permanent": true
     }
-  ]
+  ],
+  "rewrites": []
 }
