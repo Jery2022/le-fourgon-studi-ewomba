@@ -10,6 +10,7 @@ build/
 
 # ── Environnement ──
 .env
+.env.copy
 .env.local
 .env.*.local
 
@@ -47,6 +48,7 @@ coverage/
 .vercel/
 
 # - Guide d'utilisation : -
+.guide/
 Guide_Netlify_LeFourgon.md
 Guide_Vercel_LeFourgon.md
 Guide_Railway_LeFourgon.md
